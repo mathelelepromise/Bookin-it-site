@@ -1,0 +1,604 @@
+th=device-width, initial-scale=1.0" />
+  <title>Bookin'it — Schedule Like a Pro</title>
+  <meta name="description" content="The smart booking platform built for freelancers, developers, and remote professionals. Book interviews, demos, and calls in seconds." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+<style>
+:root{--bg:#0d0f14;--bg-2:#13161e;--bg-3:#1a1d27;--border:rgba(255,255,255,0.07);--border-2:rgba(255,255,255,0.12);--text:#f0f2f8;--text-2:#9ca3b8;--text-3:#6b728e;--accent:#00d4aa;--accent-2:#00b894;--accent-glow:rgba(0,212,170,0.18);--gold:#f5c842;--gold-d<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="widim:rgba(245,200,66,0.15);--danger:#ff4757;--radius:12px;--radius-lg:20px;--radius-xl:28px;--shadow-sm:0 2px 8px rgba(0,0,0,0.3);--shadow-md:0 8px 32px rgba(0,0,0,0.4);--shadow-lg:0 20px 60px rgba(0,0,0,0.5);--font-display:'Syne',sans-serif;--font-body:'DM Sans',sans-serif;--transition:0.22s ease;--nav-height:72px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:var(--nav-height)}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--accent);text-decoration:none;transition:color var(--transition)}
+a:hover{color:var(--accent-2)}
+button{cursor:pointer;font-family:var(--font-body);border:none;outline:none}
+input,select,textarea{font-family:var(--font-body);font-size:15px;outline:none}
+::selection{background:var(--accent-glow);color:var(--accent)}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg-2)}
+::-webkit-scrollbar-thumb{background:var(--bg-3);border-radius:3px}
+.container{max-width:1120px;margin:0 auto;padding:0 24px}
+.hidden{display:none!important}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;border-radius:var(--radius);font-family:var(--font-body);font-size:15px;font-weight:500;transition:all var(--transition);border:1.5px solid transparent;white-space:nowrap}
+.btn-primary{background:var(--accent);color:#0d0f14;font-weight:600;border-color:var(--accent)}
+.btn-primary:hover{background:var(--accent-2);border-color:var(--accent-2);transform:translateY(-1px);box-shadow:0 6px 24px var(--accent-glow)}
+.btn-outline{background:transparent;color:var(--accent);border-color:var(--accent)}
+.btn-outline:hover{background:var(--accent-glow);transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--text-2);border-color:transparent}
+.btn-ghost:hover{color:var(--text);background:var(--bg-3)}
+.btn-lg{padding:14px 30px;font-size:16px;border-radius:14px}
+.btn-sm{padding:7px 14px;font-size:13px;border-radius:8px}
+.btn-block{width:100%;justify-content:center}
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--nav-height);background:rgba(13,15,20,0.85);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--border);transition:box-shadow var(--transition)}
+.navbar.scrolled{box-shadow:0 4px 32px rgba(0,0,0,0.4)}
+.nav-container{max-width:1120px;margin:0 auto;padding:0 24px;height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.nav-logo{display:flex;align-items:center;gap:8px;text-decoration:none;flex-shrink:0}
+.logo-icon{font-size:22px;filter:drop-shadow(0 0 8px var(--accent))}
+.logo-text{font-family:var(--font-display);font-weight:800;font-size:20px;color:var(--text);letter-spacing:-0.5px}
+.nav-menu{display:flex;align-items:center;gap:4px;flex:1;justify-content:flex-end}
+.nav-link{color:var(--text-2);font-size:15px;font-weight:500;padding:8px 14px;border-radius:8px;transition:all var(--transition);text-decoration:none}
+.
+nav-link:hover{color:var(--text);background:var(--bg-3)}
+.nav-demo-link{color:var(--accent)}
+.nav-demo-link:hover{color:var(--accent);background:var(--accent-glow)}
+.nav-auth{display:flex;align-items:center;gap:8px;margin-left:12px}
+.nav-toggle{display:none;flex-direction:column;gap:5px;padding:8px;background:none;border:none;cursor:pointer}
+.nav-toggle span{display:block;width:24px;height:2px;background:var(--text);border-radius:2px;transition:all var(--transition)}
+.nav-toggle.active span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-toggle.active span:nth-child(2){opacity:0}
+.nav-toggle.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.hero{min-height:100vh;display:flex;align-items:center;padding:calc(var(--nav-height) + 60px) 0 80px;position:relative;overflow:hidden}
+.hero-bg-grid{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:60px 60px;opacity:0.4}
+.hero-orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none}
+.hero-orb-1{width:600px;height:600px;top:-200px;right:-200px;background:radial-gradient(circle,rgba(0,212,170,0.12) 0%,transparent 70%)}
+.hero-orb-2{width:400px;height:400px;bottom:-100px;left:-100px;background:radial-gradient(circle,rgba(245,200,66,0.08) 0%,transparent 70%)}
+.hero-content{position:relative;z-index:1;max-width:780px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--bg-3);border:1px solid var(--border-2);color:var(--text-2);padding:8px 16px;border-radius:100px;font-size:14px;font-weight:500;margin-bottom:28px;animation:fadeSlideUp .6s ease both}
+.badge-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--accent);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 8px var(--accent)}50%{box-shadow:0 0 16px var(--accent),0 0 24px var(--accent-glow)}}
+.hero-title{font-family:var(--font-display);font-size:clamp(2.8rem,6vw,5rem);font-weight:800;line-height:1.08;letter-spacing:-2px;color:var(--text);margin-bottom:24px;animation:fadeSlideUp .6s .1s ease both}
+.highlight{background:linear-gradient(135deg,var(--accent) 0%,var(--gold) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:18px;color:var(--text-2);max-width:600px;margin-bottom:36px;line-height:1.7;animation:fadeSlideUp .6s .2s ease both}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:40px;animation:fadeSlideUp .6s .3s ease both}
+.hero-social-proof{display:flex;align-items:center;gap:14px;color:var(--text-3);font-size:14px;animation:fadeSlideUp .6s .4s ease both}
+.hero-social-proof strong{color:var(--text)}
+.proof-avatars{display:flex}
+.proof-avatar{width:34px;height:34px;border-radius:50%;border:2px solid var(--bg);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:white;margin-left:-8px}
+.proof-avatar:first-child{margin-left:0}
+@keyframes fadeSlideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.trust-bar{padding:32px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.trust-bar .container{display:flex;align-items:center;gap:32px;flex-wrap:wrap}
+.trust-label{color:var(--text-3);font-size:13px;font-weight:500;letter-spacing:0.5px;text-transform:uppercase;white-space:nowrap}
+.trust-logos{display:flex;gap:32px;flex-wrap:wrap;align-items:center}
+.trust-logo{color:var(--text-3);font-family:var(--font-display);font-weight:700;font-size:15px;letter-spacing:0.5px;transition:color var(--transition)}
+.trust-logo:hover{color:var(--text-2)}
+.section-header{text-align:center;max-width:640px;margin:0 auto 60px}
+.section-tag{display:inline-block;background:var(--bg-3);border:1px solid var(--border-2);color:var(--accent);font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:6px 14px;border-radius:100px;margin-bottom:16px}
+.section-header h2{font-family:var(--font-display);font-size:clamp(1.
+9rem,4vw,3rem);font-weight:800;letter-spacing:-1px;color:var(--text);margin-bottom:14px;line-height:1.15}
+.section-header p{color:var(--text-2);font-size:17px}
+.how-it-works{padding:100px 0}
+.steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.step-card{background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:36px 32px;position:relative;transition:border-color var(--transition),transform var(--transition)}
+.step-card:hover{border-color:var(--border-2);transform:translateY(-4px)}
+.step-num{font-family:var(--font-display);font-size:52px;font-weight:800;color:var(--border-2);line-height:1;margin-bottom:12px;letter-spacing:-2px}
+.step-icon{font-size:32px;margin-bottom:16px}
+.step-card h3{font-family:var(--font-display);font-size:20px;font-weight:700;color:var(--text);margin-bottom:10px}
+.step-card p{color:var(--text-2);font-size:15px}
+.features{padding:100px 0;background:var(--bg-2)}
+.features-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.feature-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px 24px;position:relative;transition:all var(--transition)}
+.feature-card:hover{border-color:var(--border-2);transform:translateY(-3px);box-shadow:var(--shadow-md)}
+.feature-card--large{grid-column:span 2;background:linear-gradient(135deg,var(--bg) 60%,rgba(0,212,170,0.04) 100%)}
+.feature-icon{font-size:28px;margin-bottom:14px}
+.feature-card h3{font-family:var(--font-display);font-size:17px;font-weight:700;color:var(--text);margin-bottom:8px}
+.feature-card p{color:var(--text-2);font-size:14px;line-height:1.6}
+.feature-tag{display:inline-block;margin-top:14px;padding:3px 10px;border-radius:100px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:rgba(0,212,170,0.12);color:var(--accent);border:1px solid rgba(0,212,170,0.25)}
+.feature-tag.premium{background:var(--gold-dim);color:var(--gold);border-color:rgba(245,200,66,0.25)}
+.feature-tag.ultra{background:rgba(255,71,87,0.1);color:var(--danger);border-color:rgba(255,71,87,0.25)}
+.demo-section{padding:100px 0}
+.demo-wrapper{max-width:560px;margin:0 auto}
+.booking-card{background:var(--bg-2);border:1px solid var(--border-2);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-lg)}
+.booking-card-header{display:flex;align-items:center;gap:16px;padding:28px 32px 20px;border-bottom:1px solid var(--border)}
+.booking-avatar{width:52px;height:52px;background:var(--accent-glow);border:1px solid var(--accent);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.booking-name{font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--text);margin-bottom:2px}
+.booking-duration{color:var(--text-3);font-size:14px}
+.booking-body{padding:24px 32px 32px}
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-size:13px;font-weight:600;color:var(--text-2);margin-bottom:7px;letter-spacing:0.3px;text-transform:uppercase}
+.form-group input,.form-group select,.form-group textarea{width:100%;background:var(--bg-3);border:1.5px solid var(--border);border-radius:var(--radius);padding:11px 14px;color:var(--text);transition:border-color var(--transition),box-shadow var(--transition);-webkit-appearance:none;appearance:none}
+.form-group select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239ca3b8' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:36px}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-glow)}
+.form-group input::placeholder,.form-group textarea::placeholder{color:var(--text-3)}
+.form-group textarea{resize:vertical;min-height:70px}
+.input-wrap{position:relative}
+.
+toggle-pw{position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;font-size:16px;color:var(--text-3);cursor:pointer;transition:color var(--transition);padding:4px}
+.toggle-pw:hover{color:var(--text)}
+.pw-strength{margin-top:6px;font-size:12px;font-weight:600;height:16px;transition:color var(--transition)}
+.platform-toggle{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.platform-btn{display:flex;align-items:center;justify-content:center;gap:8px;padding:11px 16px;background:var(--bg-3);border:1.5px solid var(--border);border-radius:var(--radius);color:var(--text-2);font-size:14px;font-weight:500;cursor:pointer;transition:all var(--transition)}
+.platform-btn:hover{border-color:var(--border-2);color:var(--text)}
+.platform-btn.active{border-color:var(--accent);background:var(--accent-glow);color:var(--accent);font-weight:600}
+.demo-note{text-align:center;color:var(--text-3);font-size:12px;margin-top:14px}
+.booking-success{background:var(--bg-2);border:1px solid var(--border-2);border-radius:var(--radius-xl);padding:60px 40px;text-align:center;box-shadow:var(--shadow-lg)}
+.success-icon{font-size:56px;margin-bottom:20px}
+.booking-success h3{font-family:var(--font-display);font-size:28px;font-weight:800;color:var(--text);margin-bottom:12px}
+.booking-success p{color:var(--text-2);margin-bottom:28px}
+.pricing{padding:100px 0;background:var(--bg-2)}
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;align-items:start}
+.pricing-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-xl);padding:36px 32px;position:relative;transition:all var(--transition)}
+.pricing-card:hover{border-color:var(--border-2);transform:translateY(-4px)}
+.pricing-card--featured{border-color:var(--accent);background:linear-gradient(160deg,var(--bg) 60%,rgba(0,212,170,0.04) 100%);box-shadow:0 0 0 1px var(--accent),var(--shadow-lg)}
+.pricing-card--featured:hover{transform:translateY(-6px)}
+.plan-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--accent);color:#0d0f14;font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:4px 14px;border-radius:100px;white-space:nowrap}
+.plan-name{font-family:var(--font-display);font-size:22px;font-weight:800;color:var(--text);margin-bottom:8px}
+.plan-price{display:flex;align-items:baseline;gap:4px;margin-bottom:10px}
+.price-amount{font-family:var(--font-display);font-size:42px;font-weight:800;color:var(--text);letter-spacing:-2px}
+.price-period{color:var(--text-3);font-size:16px}
+.plan-tagline{color:var(--text-2);font-size:14px;margin-bottom:24px}
+.plan-features{list-style:none;margin-bottom:28px}
+.plan-features li{padding:8px 0;font-size:14px;color:var(--text-2);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
+.plan-features li:last-child{border-bottom:none}
+.plan-features li.disabled{color:var(--text-3)}
+.testimonials{padding:100px 0}
+.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.testimonial-card{background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px 28px;transition:all var(--transition)}
+.testimonial-card:hover{border-color:var(--border-2);transform:translateY(-3px)}
+.testimonial-text{color:var(--text);font-size:16px;line-height:1.7;margin-bottom:24px;font-style:italic}
+.testimonial-text::before{content:'"';color:var(--accent);font-size:24px;font-style:normal}
+.testimonial-author{display:flex;align-items:center;gap:12px}
+.t-avatar{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:white;flex-shrink:0}
+.testimonial-author strong{display:block;color:var(--text);font-size:14px}
+.testimonial-author span{color:var(--text-3);font-size:13px}
+.cta-banner{padding:100px 0;background:linear-gradient(135deg,#0d1a16 0%,#0d0f14 50%,#14100d 100%);position:relative;overflow:hidden}
+.
+cta-banner::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 20% 50%,rgba(0,212,170,0.08) 0%,transparent 60%),radial-gradient(ellipse at 80% 50%,rgba(245,200,66,0.05) 0%,transparent 60%)}
+.cta-content{text-align:center;position:relative;z-index:1}
+.cta-content h2{font-family:var(--font-display);font-size:clamp(1.8rem,4vw,3rem);font-weight:800;letter-spacing:-1px;color:var(--text);margin-bottom:16px}
+.cta-content p{color:var(--text-2);font-size:17px;max-width:500px;margin:0 auto 36px}
+.cta-actions{display:flex;flex-direction:column;align-items:center;gap:14px}
+.cta-sub{color:var(--text-3);font-size:13px}
+.footer{background:var(--bg-2);border-top:1px solid var(--border);padding:72px 0 40px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:56px}
+.footer-brand p{color:var(--text-3);font-size:14px;margin-top:14px;max-width:280px;line-height:1.65}
+.footer-socials{display:flex;gap:12px;margin-top:20px}
+.footer-socials a{width:36px;height:36px;background:var(--bg-3);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--text-3);font-size:13px;font-weight:700;transition:all var(--transition)}
+.footer-socials a:hover{color:var(--text);border-color:var(--border-2)}
+.footer-col h4{font-family:var(--font-display);font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-2);margin-bottom:20px}
+.footer-col a{display:block;color:var(--text-3);font-size:14px;padding:5px 0;transition:color var(--transition);text-decoration:none}
+.footer-col a:hover{color:var(--text)}
+.footer-bottom{border-top:1px solid var(--border);padding-top:28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-bottom p{color:var(--text-3);font-size:13px}
+.easter-egg{font-style:italic;color:var(--text-3)!important;font-size:12px!important;opacity:0.7}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);backdrop-filter:blur(6px);z-index:2000;align-items:center;justify-content:center;padding:20px;overflow-y:auto}
+.modal-overlay.open{display:flex;animation:fadeIn .2s ease}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.modal{background:var(--bg-2);border:1px solid var(--border-2);border-radius:var(--radius-xl);width:100%;max-width:460px;position:relative;animation:slideUp .25s ease;box-shadow:var(--shadow-lg);margin:auto}
+.modal-wide{max-width:640px}
+@keyframes slideUp{from{opacity:0;transform:translateY(30px) scale(0.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+.modal-close{position:absolute;top:16px;right:16px;background:var(--bg-3);border:1px solid var(--border);color:var(--text-3);width:32px;height:32px;border-radius:8px;font-size:18px;display:flex;align-items:center;justify-content:center;transition:all var(--transition);z-index:1}
+.modal-close:hover{color:var(--text);border-color:var(--border-2)}
+.modal-header{padding:32px 32px 20px;border-bottom:1px solid var(--border);text-align:center}
+.modal-header .logo-icon{font-size:28px;display:block;margin-bottom:8px}
+.modal-header h2{font-family:var(--font-display);font-size:24px;font-weight:800;color:var(--text);margin-bottom:4px}
+.modal-header p{color:var(--text-3);font-size:14px}
+.modal-body{padding:24px 32px 32px}
+.modal-switch{text-align:center;color:var(--text-3);font-size:14px;margin-top:18px}
+.link-btn{background:none;border:none;color:var(--accent);font-size:14px;cursor:pointer;font-family:var(--font-body);transition:color var(--transition)}
+.link-btn:hover{color:var(--accent-2)}
+.form-error{background:rgba(255,71,87,0.12);border:1px solid rgba(255,71,87,0.3);border-radius:var(--radius);color:#ff8b97;padding:10px 14px;font-size:14px;margin-bottom:16px}
+.checkbox-group label{display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:14px;color:var(--text-2);text-transform:none;letter-spacing:0;font-weight:400}
+.checkbox-group input[type="checkbox"]{width:18px;height:18px;flex-shrink:0;margin-top:1px;accent-color:var(--accent)}
+.
+checkbox-group .link{color:var(--accent);text-decoration:underline}
+.dashboard-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px}
+.stat-card{background:var(--bg-3);border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center}
+.stat-num{font-family:var(--font-display);font-size:32px;font-weight:800;color:var(--accent);margin-bottom:4px}
+.stat-label{color:var(--text-3);font-size:12px;text-transform:uppercase;letter-spacing:1px}
+.dashboard-section{margin-bottom:28px}
+.dashboard-section-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.dashboard-section h3{font-family:var(--font-display);font-size:16px;font-weight:700;color:var(--text);margin-bottom:14px}
+.dashboard-section-header h3{margin-bottom:0}
+.bookings-list{display:flex;flex-direction:column;gap:10px}
+.booking-item{background:var(--bg-3);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.booking-item-info strong{display:block;font-size:14px;color:var(--text)}
+.booking-item-info span{font-size:12px;color:var(--text-3)}
+.booking-item-badge{padding:4px 10px;border-radius:100px;font-size:11px;font-weight:700;background:var(--accent-glow);color:var(--accent);border:1px solid rgba(0,212,170,0.2);white-space:nowrap}
+.empty-state{color:var(--text-3);font-size:14px;text-align:center;padding:20px 0}
+.booking-link-box{display:flex;gap:10px;align-items:center;background:var(--bg-3);border:1px solid var(--border);border-radius:var(--radius);padding:12px 16px}
+.booking-link-text{flex:1;font-family:monospace;font-size:14px;color:var(--accent);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.upgrade-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.upgrade-card{background:var(--bg-3);border:1px solid var(--border);border-radius:var(--radius);padding:18px}
+.upgrade-card strong{display:block;color:var(--text);font-size:14px;margin-bottom:6px}
+.upgrade-card p{color:var(--text-3);font-size:12px;margin-bottom:14px}
+.upgrade-feature-list{margin-bottom:24px}
+.upgrade-feature-list li{padding:8px 0;border-bottom:1px solid var(--border);font-size:14px;color:var(--text-2);display:flex;align-items:center;gap:8px;list-style:none}
+.upgrade-feature-list li:last-child{border-bottom:none}
+.toast{position:fixed;bottom:24px;right:24px;background:var(--bg-2);border:1px solid var(--border-2);border-radius:var(--radius);color:var(--text);padding:14px 20px;font-size:14px;font-weight:500;box-shadow:var(--shadow-lg);z-index:9999;transform:translateY(100px);opacity:0;transition:all .3s cubic-bezier(0.34,1.56,0.64,1);max-width:320px}
+.toast.show{transform:translateY(0);opacity:1}
+.toast.toast-success{border-color:var(--accent)}
+.toast.toast-error{border-color:var(--danger)}
+@media(max-width:1024px){.features-grid{grid-template-columns:repeat(2,1fr)}.feature-card--large{grid-column:span 2}.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:768px){:root{--nav-height:64px}.nav-toggle{display:flex}.nav-menu{position:fixed;top:var(--nav-height);left:0;right:0;background:var(--bg-2);border-bottom:1px solid var(--border);flex-direction:column;align-items:stretch;padding:16px;gap:6px;transform:translateY(-110%);transition:transform .3s cubic-bezier(0.4,0,0.2,1);z-index:999}.nav-menu.open{transform:translateY(0)}.nav-link{text-align:center;padding:12px}.nav-auth{flex-direction:column;margin-left:0;margin-top:8px}.nav-auth .btn{width:100%;justify-content:center}.hero{padding:calc(var(--nav-height) + 40px) 0 60px}.hero-title{letter-spacing:-1px}.hero-cta{flex-direction:column}.hero-cta .btn{justify-content:center}.features-grid{grid-template-columns:1fr}.feature-card--large{grid-column:span 1}.steps-grid,.pricing-grid,.testimonials-grid{grid-template-columns:1fr}.dashboard-stats{grid-template-columns:repeat(3,1fr);gap:10px}.stat-num{font-size:24px}.upgrade-cards{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr;gap:32px}.
+footer-bottom{flex-direction:column;text-align:center}.booking-body{padding:18px 20px 24px}.booking-card-header{padding:20px 20px 16px}.modal{margin:10px}.modal-header{padding:24px 20px 16px}.modal-body{padding:18px 20px 24px}.toast{left:16px;right:16px;bottom:16px;max-width:none}}
+@media(max-width:480px){.hero-badge{font-size:12px}.dashboard-stats{grid-template-columns:1fr}.platform-toggle{grid-template-columns:1fr}.trust-bar .container{flex-direction:column;align-items:flex-start}}
+</style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-container">
+    <a href="#" class="nav-logo" aria-label="Bookin'it home"><span class="logo-icon">⚡</span><span class="logo-text">Bookin'it</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navMenu"><span></span><span></span><span></span></button>
+    <div class="nav-menu" id="navMenu" role="menubar">
+      <a href="#features" class="nav-link" role="menuitem">Features</a>
+      <a href="#pricing" class="nav-link" role="menuitem">Pricing</a>
+      <a href="#how-it-works" class="nav-link" role="menuitem">How It Works</a>
+      <a href="#demo" class="nav-link nav-demo-link" role="menuitem" id="demoNavBtn">Try Demo</a>
+      <div class="nav-auth" id="navAuthLoggedOut">
+        <button class="btn btn-ghost" id="navLoginBtn">Log In</button>
+        <button class="btn btn-primary" id="navRegisterBtn">Sign Up Free</button>
+      </div>
+      <div class="nav-auth nav-auth-in hidden" id="navAuthLoggedIn">
+        <button class="btn btn-ghost" id="navDashboardBtn">Dashboard</button>
+        <button class="btn btn-outline" id="navSignOutBtn">Sign Out</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<section class="hero" id="home" aria-labelledby="heroHeading">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="container hero-content">
+    <div class="hero-badge"><span class="badge-dot"></span>Built for remote professionals &amp; technical recruiters</div>
+    <h1 class="hero-title" id="heroHeading">Stop chasing calendars.<br/><span class="highlight">Start closing deals.</span></h1>
+    <p class="hero-sub">Bookin'it is the scheduling layer between your talent and the world. Share one link. Let clients, recruiters, and collaborators book you — on your time, in your timezone, on your terms.</p>
+    <div class="hero-cta">
+      <button class="btn btn-primary btn-lg" id="heroSignupBtn">Get Started Free <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+      <button class="btn btn-ghost btn-lg" id="heroDemoBtn">↗ Book a Demo (No sign-up)</button>
+    </div>
+    <div class="hero-social-proof">
+      <div class="proof-avatars" aria-hidden="true">
+        <div class="proof-avatar" style="background:#6366f1">JD</div>
+        <div class="proof-avatar" style="background:#ec4899">MR</div>
+        <div class="proof-avatar" style="background:#f59e0b">KA</div>
+        <div class="proof-avatar" style="background:#10b981">TS</div>
+      </div>
+      <p><strong>400+</strong> freelancers and remote proffessionals already booking smarter</p>
+    </div>
+  </div>
+</section>
+
+<section class="trust-bar" aria-label="Trusted by professionals">
+  <div class="container">
+    <p class="trust-label">Trusted by professionals at</p>
+    <div class="trust-logos">
+      <span class="trust-logo">
+        <a herf="https://www.upwork.com" target="_blank" noonpener nonefferrer>Upwork</a>
+          
+        </span>
+      <span class="trust-logo">Freelancer</span>
+      <span class="trust-logo">Fiverr</span>
+      <span class="trust-logo">GitBucket</span>
+      <span class="trust-logo">GitHub</span>
+      <span class="trust-logo">Codeberg</span>
+    </div>
+  </div>
+</section>
+
+<section class="how-it-works" id="how-it-works" aria-labelledby="howHeading">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">How It Works</span>
+      <h2 id="howHeading">Booked in three moves.</h2>
+<p>No back-and-forth emails. No timezone confusion. No ghosting.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card"><div class="step-num">01</div><div class="step-icon">🔗</div><h3>Share Your Link</h3><p>One clean booking URL. Drop it in your email signature, LinkedIn bio, or portfolio. Done.</p></div>
+      <div class="step-card"><div class="step-num">02</div><div class="step-icon">📅</div><h3>They Pick a Slot</h3><p>Clients and recruiters see your real availability in their timezone. No double-bookings. No confusion.</p></div>
+      <div class="step-card"><div class="step-num">03</div><div class="step-icon">✅</div><h3>Both Get Confirmed</h3><p>Instant email confirmations with Google Meet or Teams links. You show up. They show up. Business happens.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="features" id="features" aria-labelledby="featuresHeading">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Features</span>
+      <h2 id="featuresHeading">Everything a remote pro needs.</h2>
+      <p>From freelance dev to corporate recruiter — Bookin'it handles the logistics so you handle the work.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card feature-card--large"><div class="feature-icon">🌍</div><h3>Smart Timezone Detection</h3><p>Your booker sees slots in their timezone. You see them in yours. Nobody calculates UTC offsets ever again. Works across 20+ timezones worldwide.</p><div class="feature-tag">Free</div></div>
+      <div class="feature-card"><div class="feature-icon">📧</div><h3>Instant Email Confirmations</h3><p>Both parties receive a beautiful, branded confirmation email the moment a booking is made.</p><div class="feature-tag">Free</div></div>
+      <div class="feature-card"><div class="feature-icon">🎥</div><h3>Google Meet &amp; MS Teams</h3><p>Booker selects their preferred platform and drops in their meeting link or username.</p><div class="feature-tag">Free</div></div>
+      <div class="feature-card"><div class="feature-icon">🎭</div><h3>Demo Booking — No Account Needed</h3><p>Let anyone experience the magic of frictionless booking before they even sign up.</p><div class="feature-tag">Free</div></div>
+      <div class="feature-card"><div class="feature-icon">📊</div><h3>Booking Analytics</h3><p>See who's booking, when, how often. Identify your busiest days and optimize your schedule.</p><div class="feature-tag premium">Pro</div></div>
+      <div class="feature-card"><div class="feature-icon">🔁</div><h3>Recurring Bookings</h3><p>Set up weekly standups, monthly check-ins, or sprint reviews that auto-schedule forever.</p><div class="feature-tag premium">Pro</div></div>
+      <div class="feature-card"><div class="feature-icon">🎨</div><h3>Custom Branding</h3><p>Your logo, your colors, your domain. Present a booking page that's unmistakably you.</p><div class="feature-tag ultra">Ultra</div></div>
+      <div class="feature-card"><div class="feature-icon">🤝</div><h3>Team Booking Pages</h3><p>Round-robin scheduling, collective availability, team calendars. Book a whole team.</p><div class="feature-tag ultra">Ultra</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="demo-section" id="demo" aria-labelledby="demoHeading">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Try It Now</span>
+      <h2 id="demoHeading">Book a demo slot. No account required.</h2>
+      <p>Experience exactly what your clients will experience when they book with you.</p>
+    </div>
+    <div class="demo-wrapper">
+      <div class="booking-card" id="demoBookingCard">
+        <div class="booking-card-header">
+          <div class="booking-avatar">⚡</div>
+          <div><h3 class="booking-name">Bookin'it Demo Session</h3><p class="booking-duration">15-30 min · Video Call</p></div>
+        </div>
+        <div class="booking-body">
+          <div class="form-group"><label for="demoName">Your Full Name *</label><input type="text" id="demoName" placeholder="e.g.
+Jordan Reeves" autocomplete="name" maxlength="100"/></div>
+          <div class="form-group"><label for="demoEmail">Your Email *</label><input type="email" id="demoEmail" placeholder="you@email.com" autocomplete="email" maxlength="254"/></div>
+          <div class="form-group"><label for="demoDate">Preferred Date *</label><input type="date" id="demoDate"/></div>
+          <div class="form-group"><label for="demoTime">Preferred Time *</label><select id="demoTime"><option value="">Select a time slot</option><option value="09:00">09:00 AM</option><option value="10:00">10:00 AM</option><option value="11:00">11:00 AM</option><option value="14:00">02:00 PM</option><option value="15:00">03:00 PM</option><option value="16:00">04:00 PM</option></select></div>
+          <div class="form-group"><label for="demoTimezone">Your Timezone *</label><select id=+27 Cape Town>ZA</select><option>ZA</option></select></div>
+          <div class="form-group"><label>Preferred Platform *</label><div class="platform-toggle" role="group"><button type="button" class="platform-btn active" data-platform="google-meet" aria-pressed="true"><span>🎥</span> Google Meet</button><button type="button" class="platform-btn active" data-platform="ms-teams" aria-pressed="false"><span>💼</span> MS Teams</button></div></div>
+          <div class="form-group"><label for="demoMeetLink">Meeting Username / Link *</label><input type="text" id="demoMeetLink" placeholder="e.g. meet.google.com/xyz or teams username" maxlength="300"/></div>
+          <div class="form-group"><label for="demoNote">Notes for the host</label><textarea id="demoNote" rows="2" placeholder="Tell them what you'd like to cover…" maxlength="500"></textarea></div>
+          <button class="btn btn-primary btn-block" id="demoSubmitBtn" type="button">Confirm Demo Booking ✓</button>
+          <p class="demo-note">🔒 No account needed. Confirmation sent to your email.</p>
+        </div>
+      </div>
+      <div class="booking-success hidden" id="demoSuccessCard" role="alert" aria-live="polite">
+        <div class="success-icon">🎉</div>
+        <h3>You're booked!</h3>
+        <p id="demoSuccessMsg">Check your inbox for a confirmation email with your meeting details.</p>
+        <button class="btn btn-outline" id="demoResetBtn">Book Another</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="pricing" aria-labelledby="pricingHeading">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Pricing</span>
+      <h2 id="pricingHeading">Grow at your own pace.</h2>
+      <p>Start free. Upgrade when the work demands it. Cancel anytime — no guilt trips.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="plan-name">Starter</div>
+        <div class="plan-price"><span class="price-amount">$0</span><span class="price-period">/month</span></div>
+        <p class="plan-tagline">Everything you need to get your first booking.</p>
+        <ul class="plan-features"><li>✓ 1 booking page</li><li>✓ Timezone auto-detect</li><li>✓ Email confirmations</li><li>✓ Google Meet &amp; MS Teams</li><li>✓ Demo booking (no login)</li><li>✓ Up to 10 bookings/month</li><li class="disabled">✗ Custom branding</li><li class="disabled">✗ Analytics</li></ul>
+        <button class="btn btn-outline btn-block plan-cta" data-plan="starter">Get Started Free</button>
+      </div>
+      <div class="pricing-card pricing-card--featured">
+        <div class="plan-badge">Most Popular</div>
+        <div class="plan-name">Pro</div>
+        <div class="plan-price"><span class="price-amount">$12</span><span class="price-period">/month</span></div>
+        <p class="plan-tagline">For active freelancers closing deals weekly.</p>
+        <ul class="plan-features"><li>✓ Everything in Starter</li><li>✓ Unlimited bookings</li><li>✓ 3 booking pages</li><li>✓ Analytics &amp; reports</li><li>✓ Recurring bookings</li><li>✓ Buffer time between meetings</li><li>✓ Custom questions</li><li class="disabled">✗ Custom branding/domain</li></ul>
+<button class="btn btn-primary btn-block plan-cta" data-plan="pro">Start Pro Free Trial</button>
+      </div>
+      <div class="pricing-card">
+        <div class="plan-name">Ultra</div>
+        <div class="plan-price"><span class="price-amount">$29</span><span class="price-period">/month</span></div>
+        <p class="plan-tagline">For agencies, teams, and power recruiters.</p>
+        <ul class="plan-features"><li>✓ Everything in Pro</li><li>✓ Unlimited booking pages</li><li>✓ Custom branding &amp; domain</li><li>✓ Team round-robin scheduling</li><li>✓ Priority email support</li><li>✓ API access</li><li>✓ White-label pages</li><li>✓ Zapier &amp; Slack integrations</li></ul>
+        <button class="btn btn-outline btn-block plan-cta" data-plan="ultra">Go Ultra</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials" aria-labelledby="testimonialsHeading">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Testimonials</span>
+      <h2 id="testimonialsHeading">Real people. Real bookings.</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card"><p class="testimonial-text">I used to lose deals because of scheduling friction. Now I paste one link and clients book themselves. Bookin'it paid for itself in my first week.</p><div class="testimonial-author"><div class="t-avatar" style="background:#6366f1">JD</div><div><strong>James Dube</strong><span>Freelance Full-Stack Developer</span></div></div></div>
+      <div class="testimonial-card"><p class="testimonial-text">As a technical recruiter, I interview 15+ candidates a week. Bookin'it's timezone handling alone saves me 2 hours of back-and-forth every single day.</p><div class="testimonial-author"><div class="t-avatar" style="background:#ec4899">MR</div><div><strong>Maya Reyes</strong><span>Senior Technical Recruiter</span></div></div></div>
+      <div class="testimonial-card"><p class="testimonial-text">The demo booking feature is genius. I sent my portfolio to a client and they booked a slot right there. No login, no fuss. That's how you close.</p><div class="testimonial-author"><div class="t-avatar" style="background:#10b981">KA</div><div><strong>Kofi Asante</strong><span>UX Copywriter &amp; Strategist</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-banner" aria-labelledby="ctaBannerHeading">
+  <div class="container">
+    <div class="cta-content">
+      <h2 id="ctaBannerHeading">Your next opportunity is one link away.</h2>
+      <p>Join thousands of remote professionals who've turned scheduling from a chore into a competitive advantage.</p>
+      <div class="cta-actions">
+        <button class="btn btn-primary btn-lg" id="ctaSignupBtn">Create Your Free Account</button>
+        <span class="cta-sub">No credit card required · Set up in under 3 minutes</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo"><span class="logo-icon">⚡</span><span class="logo-text">Bookin'it</span></a>
+        <p>The smart scheduling platform for remote professionals, freelancers, and technical recruiters worldwide.</p>
+        <div class="footer-socials"><a href="#" aria-label="Twitter">𝕏</a><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="GitHub">⌥</a></div>
+      </div>
+      <div class="footer-col"><h4>Product</h4><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#demo">Demo</a><a href="#how-it-works">How It Works</a></div>
+      <div class="footer-col"><h4>Company</h4><a href="#">About</a><a href="#">Blog</a><a href="#">Careers</a><a href="#">Press</a></div>
+      <div class="footer-col"><h4>Support</h4><a href="#">Help Center</a><a href="#">Status</a><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Bookin'it. All rights reserved. Built for the future of remote work.</p>
+<p class="easter-egg">"did you know this is my first major project😉" — P Mathelele</p>
+    </div>
+  </div>
+</footer>
+
+<!-- MODALS -->
+<div class="modal-overlay" id="loginModal" role="dialog" aria-modal="true" aria-labelledby="loginModalTitle" tabindex="-1">
+  <div class="modal">
+    <button class="modal-close" aria-label="Close" data-modal="loginModal">&times;</button>
+    <div class="modal-header"><span class="logo-icon">⚡</span><h2 id="loginModalTitle">Welcome back.</h2><p>Sign in to your Bookin'it account.</p></div>
+    <div class="modal-body">
+      <div id="loginError" class="form-error hidden" role="alert"></div>
+      <div class="form-group"><label for="loginEmail">Email</label><input type="email" id="loginEmail" placeholder="you@email.com" autocomplete="email" maxlength="254"/></div>
+      <div class="form-group"><label for="loginPassword">Password</label><div class="input-wrap"><input type="password" id="loginPassword" placeholder="Your password" autocomplete="current-password" maxlength="128"/><button type="button" class="toggle-pw" aria-label="Toggle password" data-target="loginPassword">👁</button></div></div>
+      <button class="btn btn-primary btn-block" id="loginSubmitBtn" type="button">Sign In</button>
+      <div class="modal-switch">Don't have an account? <button class="link-btn" id="switchToRegister">Create one free →</button></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="registerModal" role="dialog" aria-modal="true" aria-labelledby="registerModalTitle" tabindex="-1">
+  <div class="modal">
+    <button class="modal-close" aria-label="Close" data-modal="registerModal">&times;</button>
+    <div class="modal-header"><span class="logo-icon">⚡</span><h2 id="registerModalTitle">Create your account.</h2><p>Free forever. No credit card needed.</p></div>
+    <div class="modal-body">
+      <div id="registerError" class="form-error hidden" role="alert"></div>
+      <div class="form-group"><label for="registerName">Full Name</label><input type="text" id="registerName" placeholder="Your full name" autocomplete="name" maxlength="100"/></div>
+      <div class="form-group"><label for="registerEmail">Email</label><input type="email" id="registerEmail" placeholder="you@email.com" autocomplete="email" maxlength="254"/></div>
+      <div class="form-group"><label for="registerPassword">Password</label><div class="input-wrap"><input type="password" id="registerPassword" placeholder="Min. 8 characters" autocomplete="new-password" maxlength="128"/><button type="button" class="toggle-pw" aria-label="Toggle password" data-target="registerPassword">👁</button></div><div class="pw-strength" id="pwStrength" aria-live="polite"></div></div>
+      <div class="form-group"><label for="registerRole">I am a…</label><select id="registerRole"><option value="">Select your role</option><option value="freelancer">Freelance Developer / Designer</option><option value="recruiter">Technical Recruiter</option><option value="copywriter">Copywriter / Content Creator</option><option value="consultant">Consultant / Coach</option><option value="other">Other Remote Professional</option></select></div>
+      <div class="form-group checkbox-group"><label class="checkbox-label"><input type="checkbox" id="registerTerms"/><span>I agree to the <a href="#" class="link">Terms of Service</a> and <a href="#" class="link">Privacy Policy</a></span></label></div>
+      <button class="btn btn-primary btn-block" id="registerSubmitBtn" type="button">Create Free Account</button>
+      <div class="modal-switch">Already have an account? <button class="link-btn" id="switchToLogin">Sign in →</button></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="dashboardModal" role="dialog" aria-modal="true" aria-labelledby="dashboardTitle" tabindex="-1">
+  <div class="modal modal-wide">
+    <button class="modal-close" aria-label="Close" data-modal="dashboardModal">&times;</button>
+    <div class="modal-header"><h2 id="dashboardTitle">Your Dashboard</h2><p id="dashboardWelcome">Welcome back!</p></div>
+    <div class="modal-body">
+<div class="dashboard-stats">
+        <div class="stat-card"><div class="stat-num" id="statTotal">0</div><div class="stat-label">Total Bookings</div></div>
+        <div class="stat-card"><div class="stat-num" id="statUpcoming">0</div><div class="stat-label">Upcoming</div></div>
+        <div class="stat-card"><div class="stat-num" id="statPlan">Free</div><div class="stat-label">Current Plan</div></div>
+      </div>
+      <div class="dashboard-section">
+        <div class="dashboard-section-header"><h3>Your Bookings</h3><button class="btn btn-primary btn-sm" id="newBookingBtn">+ New Booking</button></div>
+        <div id="bookingsList" class="bookings-list"><p class="empty-state">No bookings yet. Share your booking link to get started!</p></div>
+      </div>
+      <div class="dashboard-section"><h3>Your Booking Link</h3><div class="booking-link-box"><span id="userBookingLink" class="booking-link-text">bookinit.app/u/yourname</span><button class="btn btn-outline btn-sm" id="copyLinkBtn">Copy</button></div></div>
+      <div class="dashboard-section"><h3>Upgrade Your Plan</h3><div class="upgrade-cards"><div class="upgrade-card"><strong>Pro — $12/mo</strong><p>Analytics, recurring bookings, 3 pages</p><button class="btn btn-primary btn-sm plan-cta" data-plan="pro">Upgrade</button></div><div class="upgrade-card"><strong>Ultra — $29/mo</strong><p>Custom branding, teams, API access</p><button class="btn btn-outline btn-sm plan-cta" data-plan="ultra">Upgrade</button></div></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="bookingModal" role="dialog" aria-modal="true" aria-labelledby="bookingModalTitle" tabindex="-1">
+  <div class="modal">
+    <button class="modal-close" aria-label="Close" data-modal="bookingModal">&times;</button>
+    <div class="modal-header"><h2 id="bookingModalTitle">Create a Booking</h2><p>Schedule a session and send confirmations.</p></div>
+    <div class="modal-body">
+      <div id="bookingError" class="form-error hidden" role="alert"></div>
+      <div class="form-group"><label for="bookingClientName">Client / Guest Name *</label><input type="text" id="bookingClientName" placeholder="Their full name" maxlength="100"/></div>
+      <div class="form-group"><label for="bookingClientEmail">Client Email *</label><input type="email" id="bookingClientEmail" placeholder="client@email.com" maxlength="254"/></div>
+      <div class="form-group"><label for="bookingDate">Date *</label><input type="date" id="bookingDate"/></div>
+      <div class="form-group"><label for="bookingTime">Time *</label><select id="bookingTime"><option value="">Select time</option><option value="09:00">09:00 AM</option><option value="10:00">10:00 AM</option><option value="11:00">11:00 AM</option><option value="14:00">02:00 PM</option><option value="15:00">03:00 PM</option><option value="16:00">04:00 PM</option></select></div>
+      <div class="form-group"><label for="bookingTimezone">Timezone *</label><select id="bookingTimezone" aria-label="Select timezone"></select></div>
+      <div class="form-group"><label>Platform *</label><div class="platform-toggle" role="group"><button type="button" class="platform-btn active" data-platform="google-meet" aria-pressed="true"><span>🎥</span> Google Meet</button><button type="button" class="platform-btn" data-platform="ms-teams" aria-pressed="false"><span>💼</span> MS Teams</button></div></div>
+      <div class="form-group"><label for="bookingMeetLink">Meeting Username / Link *</label><input type="text" id="bookingMeetLink" placeholder="Your Meet link or Teams username" maxlength="300"/></div>
+      <button class="btn btn-primary btn-block" id="bookingSubmitBtn" type="button">Send Booking Confirmation</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="upgradeModal" role="dialog" aria-modal="true" aria-labelledby="upgradeModalTitle" tabindex="-1">
+  <div class="modal">
+    <button class="modal-close" aria-label="Close" data-modal="upgradeModal">&times;</button>
+<div class="modal-header"><h2 id="upgradeModalTitle">Upgrade Your Plan</h2><p id="upgradeModalSub">Unlock more power.</p></div>
+    <div class="modal-body"><div class="upgrade-feature-list" id="upgradeFeatureList"></div><button class="btn btn-primary btn-block" id="upgradeConfirmBtn">Continue to Payment (Demo)</button><p class="demo-note">🔒 Demo only — no real payment processed.</p></div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+<script>
+'use strict';
+const Security=(()=>{function escapeHTML(s){if(typeof s!=='string')return '';return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#x27;').replace(/\//g,'&#x2F;');}function stripSQL(s){if(typeof s!=='string')return '';const p=[/(\b)(SELECT|INSERT|UPDATE|DELETE|DROP|CREATE|ALTER|EXEC|UNION|TRUNCATE|REPLACE|GRANT|REVOKE)(\b)/gi,/--/g,/;/g,/\/\*/g,/\*\//g,/xp_/gi,/0x[0-9a-fA-F]+/g,/CHAR\s*\(/gi,/CAST\s*\(/gi,/CONVERT\s*\(/gi];let c=s;p.forEach(r=>{c=c.replace(r,'');});return c.trim();}function stripScripts(s){if(typeof s!=='string')return '';return s.replace(/<script[\s\S]*?>[\s\S]*?<\/script>/gi,'').replace(/on\w+\s*=/gi,'').replace(/javascript:/gi,'').replace(/data:/gi,'');}function sanitise(s){if(typeof s!=='string')return '';return escapeHTML(stripScripts(stripSQL(s))).slice(0,500);}function isValidEmail(e){const r=/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*\.[a-zA-Z]{2,}$/;return r.test(e)&&e.length<=254;}function passwordStrength(p){if(!p)return{score:0,label:'',color:''};let s=0;if(p.length>=8)s++;if(p.length>=12)s++;if(/[A-Z]/.test(p)&&/[a-z]/.test(p))s++;if(/[0-9]/.test(p))s++;if(/[^A-Za-z0-9]/.test(p))s++;const l=['','Weak','Fair','Good','Strong','Very strong'];const c=['','#ff4757','#ffa502','#f5c842','#00d4aa','#00d4aa'];return{score:s,label:l[s]||'Strong',color:c[s]||'#00d4aa'};}function checkRateLimit(k,limit=5,win=60000){const sk=`rl_${k}`;const now=Date.now();let a=[];try{a=JSON.parse(localStorage.getItem(sk)||'[]');}catch{a=[];}a=a.filter(t=>now-t<win);if(a.length>=limit){const r=Math.ceil((win-(now-a[0]))/1000);return{allowed:false,retry:r};}a.push(now);try{localStorage.setItem(sk,JSON.stringify(a));}catch{}return{allowed:true};}async function hashPassword(pw){const enc=new TextEncoder();const data=enc.encode('bookinit_salt_v1'+pw);const buf=await crypto.subtle.digest('SHA-256',data);return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');}return{escapeHTML,sanitise,isValidEmail,passwordStrength,checkRateLimit,hashPassword};})();
+
+const Store=(()=>{const P='bi_';function get(k){try{return JSON.parse(localStorage.getItem(P+k));}catch{return null;}}function set(k,v){try{localStorage.setItem(P+k,JSON.stringify(v));return true;}catch{return false;}}function remove(k){try{localStorage.removeItem(P+k);}catch{}}function getUsers(){return get('users')||{};}function saveUsers(u){set('users',u);}function getSession(){return get('session');}function saveSession(s){set('session',s);}function clearSession(){remove('session');}function getBookings(e){const a=get('bookings')||{};return a[Security.sanitise(e)]||[];}function saveBooking(e,b){const a=get('bookings')||{};const k=Security.sanitise(e);a[k]=a[k]||[];a[k].push(b);set('bookings',a);}return{get,set,remove,getUsers,saveUsers,getSession,saveSession,clearSession,getBookings,saveBooking};})();
+
+const Auth=(()=>{let cu=null;function init(){const s=Store.getSession();if(s&&s.email&&s.expires>Date.now()){cu=s;updateNav(true);}else{Store.clearSession();updateNav(false);}}function getCurrentUser(){return cu;}async function register({name,email,password,role}){const rl=Security.checkRateLimit('register',5,300000);if(!rl.allowed)throw new Error(`Too many attempts. Try again in ${rl.retry}s.`);const sN=Security.sanitise(name).slice(0,100);const sE=email.toLowerCase().trim().slice(0,254);const sR=Security.sanitise(role);if(!sN||sN.
+length<2)throw new Error('Name must be at least 2 characters.');if(!Security.isValidEmail(sE))throw new Error('Please enter a valid email address.');if(!password||password.length<8)throw new Error('Password must be at least 8 characters.');if(!sR)throw new Error('Please select your role.');const us=Store.getUsers();if(us[sE])throw new Error('An account with this email already exists.');const ph=await Security.hashPassword(password);us[sE]={name:sN,email:sE,passwordHash:ph,role:sR,plan:'starter',createdAt:Date.now()};Store.saveUsers(us);await login({email:sE,password});}async function login({email,password}){const rl=Security.checkRateLimit(`login_${email}`,5,300000);if(!rl.allowed)throw new Error(`Too many login attempts. Try again in ${rl.retry}s.`);const sE=email.toLowerCase().trim();if(!Security.isValidEmail(sE))throw new Error('Invalid email address.');if(!password)throw new Error('Password is required.');const us=Store.getUsers();const u=us[sE];if(!u)throw new Error('Incorrect email or password.');const h=await Security.hashPassword(password);if(h!==u.passwordHash)throw new Error('Incorrect email or password.');const sess={email:u.email,name:u.name,role:u.role,plan:u.plan,expires:Date.now()+7*24*60*60*1000};Store.saveSession(sess);cu=sess;updateNav(true);return sess;}function logout(){Store.clearSession();cu=null;updateNav(false);UI.closeAllModals();UI.showToast('Signed out. See you next time! 👋','success');}function updateNav(li){const o=document.getElementById('navAuthLoggedOut');const i=document.getElementById('navAuthLoggedIn');if(!o||!i)return;if(li){o.classList.add('hidden');i.classList.remove('hidden');}else{o.classList.remove('hidden');i.classList.add('hidden');}}return{init,register,login,logout,getCurrentUser};})();
+
+const Bookings=(()=>{function createBooking({hostEmail,hostName,clientName,clientEmail,date,time,timezone,platform,meetLink,note,isDemo}){const b={id:`bk_${Date.now()}_${Math.random().toString(36).slice(2,7)}`,hostEmail:Security.sanitise(hostEmail||'demo@bookinit.app'),hostName:Security.sanitise(hostName||"Bookin'it Demo"),clientName:Security.sanitise(clientName),clientEmail:Security.sanitise(clientEmail),date:Security.sanitise(date),time:Security.sanitise(time),timezone:Security.sanitise(timezone),platform:Security.sanitise(platform),meetLink:Security.sanitise(meetLink).slice(0,300),note:Security.sanitise(note||'').slice(0,500),isDemo:!!isDemo,createdAt:Date.now(),status:'confirmed'};if(!b.clientName||b.clientName.length<2)throw new Error('Client name is required.');if(!Security.isValidEmail(b.clientEmail))throw new Error('A valid client email is required.');if(!b.date)throw new Error('Please select a date.');if(!b.time)throw new Error('Please select a time slot.');if(!b.timezone)throw new Error('Please select a timezone.');if(!['google-meet','ms-teams'].includes(b.platform))throw new Error('Please select a meeting platform.');if(!b.meetLink||b.meetLink.length<3)throw new Error('Please provide your meeting link or username.');const td=new Date();td.setHours(0,0,0,0);const bd=new Date(b.date);if(isNaN(bd.getTime())||bd<td)throw new Error('Please select a valid future date.');Store.saveBooking(b.hostEmail,b);console.group('📧 Email Confirmation (Simulated)');console.log(`To: ${b.clientEmail} | Date: ${b.date} ${b.time} | TZ: ${b.timezone} | Platform: ${b.platform}`);console.groupEnd();return b;}function getUserBookings(e){return Store.getBookings(e);}return{createBooking,getUserBookings};})();
+const TZ_LIST=['Africa/Abidjan','Africa/Cairo','Africa/Johannesburg','Africa/Lagos','Africa/Nairobi','America/Anchorage','America/Argentina/Buenos_Aires','America/Bogota','America/Chicago','America/Denver','America/Los_Angeles','America/Mexico_City','America/New_York','America/Sao_Paulo','America/Toronto','Asia/Bangkok','Asia/Dubai','Asia/Hong_Kong','Asia/Jakarta','Asia/Karachi','Asia/Kolkata','Asia/Kuala_Lumpur','Asia/Manila','Asia/Seoul','Asia/Shanghai','Asia/Singapore','Asia/Taipei','Asia/Tokyo','Australia/Melbourne','Australia/Perth','Australia/Sydney','Europe/Amsterdam','Europe/Berlin','Europe/Dublin','Europe/Istanbul','Europe/London','Europe/Madrid','Europe/Moscow','Europe/Paris','Europe/Rome','Europe/Warsaw','Pacific/Auckland','Pacific/Honolulu','UTC'];
+
+function populateTZ(id){const s=document.getElementById(id);if(!s)return;let utz='UTC';try{utz=Intl.DateTimeFormat().resolvedOptions().timeZone;}catch{}s.innerHTML='';TZ_LIST.forEach(tz=>{const o=document.createElement('option');o.value=tz;o.textContent=tz.replace(/_/g,' ');if(tz===utz)o.selected=true;s.appendChild(o);});}
+
+const UI=(()=>{function openModal(id){const o=document.getElementById(id);if(!o)return;o.classList.add('open');document.body.style.overflow='hidden';const fi=o.querySelector('input,select,textarea,button:not(.modal-close)');if(fi)setTimeout(()=>fi.focus(),50);}function closeModal(id){const o=document.getElementById(id);if(!o)return;o.classList.remove('open');if(!document.querySelector('.modal-overlay.open'))document.body.style.overflow='';}function closeAllModals(){['loginModal','registerModal','dashboardModal','bookingModal','upgradeModal'].forEach(id=>{const e=document.getElementById(id);if(e)e.classList.remove('open');});document.body.style.overflow='';}let tt;function showToast(msg,type='default'){const t=document.getElementById('toast');if(!t)return;t.textContent=msg;t.className=`toast show toast-${type}`;clearTimeout(tt);tt=setTimeout(()=>{t.className='toast';},3500);}function setLoading(b,l,txt='Loading…'){if(!b)return;if(l){b.dataset.ot=b.textContent;b.textContent=txt;b.disabled=true;b.style.opacity='0.75';}else{b.textContent=b.dataset.ot||b.textContent;b.disabled=false;b.style.opacity='';}}function showError(id,msg){const e=document.getElementById(id);if(!e)return;e.textContent=msg;e.classList.remove('hidden');}function hideError(id){const e=document.getElementById(id);if(e)e.classList.add('hidden');}return{openModal,closeModal,closeAllModals,showToast,setLoading,showError,hideError};})();
+
+const Dashboard=(()=>{function open(){const u=Auth.getCurrentUser();if(!u){UI.openModal('loginModal');return;}const we=document.getElementById('dashboardWelcome');if(we)we.textContent=`Welcome back, ${Security.escapeHTML(u.name)}! 👋`;const pe=document.getElementById('statPlan');if(pe)pe.textContent=u.plan.charAt(0).toUpperCase()+u.plan.slice(1);const bks=Bookings.getUserBookings(u.email);const te=document.getElementById('statTotal');if(te)te.textContent=bks.length;const now=Date.now();const up=bks.filter(b=>new Date(b.date+'T'+b.time).getTime()>now);const ue=document.getElementById('statUpcoming');if(ue)ue.textContent=up.length;const le=document.getElementById('bookingsList');if(le){if(!bks.length){le.innerHTML='<p class="empty-state">No bookings yet. Create one to get started!</p>';}else{le.innerHTML=bks.slice().reverse().map(b=>`<div class="booking-item"><div class="booking-item-info"><strong>${Security.escapeHTML(b.clientName)}</strong><span>${Security.escapeHTML(b.date)} at ${Security.escapeHTML(b.time)} · ${Security.escapeHTML(b.timezone)}</span></div><span class="booking-item-badge">${b.platform==='google-meet'?'🎥 Meet':'💼 Teams'}</span></div>`).join('');}}const lk=document.getElementById('userBookingLink');if(lk)lk.textContent=`bookinit.app/u/${Security.escapeHTML(u.name.toLowerCase().replace(/\s+/g,'-'))}`;UI.openModal('dashboardModal');}return{open};})();
+
+function initPlatformToggles(c){if(!c)return;const bs=c.querySelectorAll('.platform-btn');bs.forEach(b=>{b.addEventListener('click',()=>{bs.forEach(x=>{x.classList.remove('active');x.
+setAttribute('aria-pressed','false');});b.classList.add('active');b.setAttribute('aria-pressed','true');});});}
+
+const PLANS={pro:{name:'Pro — $12/month',features:['✓ Everything in Starter','✓ Unlimited bookings','✓ 3 booking pages','✓ Booking analytics & reports','✓ Recurring bookings','✓ Buffer time between meetings','✓ Custom questions on booking form']},ultra:{name:'Ultra — $29/month',features:['✓ Everything in Pro','✓ Unlimited booking pages','✓ Custom branding & domain','✓ Team round-robin scheduling','✓ Priority email support','✓ API access','✓ White-label booking pages','✓ Advanced integrations (Zapier, Slack)']}};
+
+function openUpgradeModal(plan){const d=PLANS[plan];if(!d)return;const t=document.getElementById('upgradeModalTitle');const s=document.getElementById('upgradeModalSub');const l=document.getElementById('upgradeFeatureList');if(t)t.textContent=`Upgrade to ${plan.charAt(0).toUpperCase()+plan.slice(1)}`;if(s)s.textContent=d.name;if(l)l.innerHTML=`<ul>${d.features.map(f=>`<li>${Security.escapeHTML(f)}</li>`).join('')}</ul>`;UI.openModal('upgradeModal');}
+
+document.addEventListener('DOMContentLoaded',()=>{
+  if(window.self!==window.top){document.body.innerHTML='<p style="padding:2rem;color:red">This page cannot be displayed in a frame.</p>';return;}
+  Auth.init();
+  // Navbar
+  const nb=document.getElementById('navbar'),tg=document.getElementById('navToggle'),mn=document.getElementById('navMenu');
+  window.addEventListener('scroll',()=>{if(window.scrollY>10)nb?.classList.add('scrolled');else nb?.classList.remove('scrolled');},{passive:true});
+  tg?.addEventListener('click',()=>{const o=mn?.classList.toggle('open');tg.classList.toggle('active',o);tg.setAttribute('aria-expanded',String(o));});
+  mn?.querySelectorAll('.nav-link').forEach(l=>l.addEventListener('click',()=>{mn.classList.remove('open');tg?.classList.remove('active');tg?.setAttribute('aria-expanded','false');}));
+  document.addEventListener('click',e=>{if(mn?.classList.contains('open')&&!mn.contains(e.target)&&!tg?.contains(e.target)){mn.classList.remove('open');tg?.classList.remove('active');tg?.setAttribute('aria-expanded','false');}});
+  // Demo booking
+  populateTZ('demoTimezone');
+  initPlatformToggles(document.querySelector('#demoBookingCard .platform-toggle'));
+  const di=document.getElementById('demoDate');if(di)di.min=new Date().toISOString().split('T')[0];
+  document.getElementById('demoSubmitBtn')?.addEventListener('click',async()=>{const b=document.getElementById('demoSubmitBtn');UI.setLoading(b,true,'Confirming…');try{const pl=document.querySelector('#demoBookingCard .platform-btn.active')?.dataset.platform||'google-meet';const bk=Bookings.createBooking({hostEmail:'demo@bookinit.app',hostName:"Bookin'it Demo",clientName:document.getElementById('demoName')?.value||'',clientEmail:document.getElementById('demoEmail')?.value||'',date:document.getElementById('demoDate')?.value||'',time:document.getElementById('demoTime')?.value||'',timezone:document.getElementById('demoTimezone')?.value||'UTC',platform:pl,meetLink:document.getElementById('demoMeetLink')?.value||'',note:document.getElementById('demoNote')?.value||'',isDemo:true});document.getElementById('demoBookingCard')?.classList.add('hidden');const sc=document.getElementById('demoSuccessCard');if(sc){sc.classList.remove('hidden');const me=document.getElementById('demoSuccessMsg');if(me)me.textContent=`Confirmation sent to ${bk.clientEmail}. Session: ${bk.date} at ${bk.time} (${bk.timezone}) via ${bk.platform==='google-meet'?'Google Meet':'MS Teams'}.`;}UI.showToast('Booking confirmed! Check browser console for simulated email.','success');}catch(e){UI.showToast(e.message||'Something went wrong.','error');}finally{UI.setLoading(b,false);}});
+  document.getElementById('demoResetBtn')?.addEventListener('click',()=>{document.getElementById('demoBookingCard')?.classList.remove('hidden');document.getElementById('demoSuccessCard')?.classList.add('hidden');});
+  // Auth forms
+  document.getElementById('loginSubmitBtn')?.addEventListener('click',async()=>{UI.
+hideError('loginError');const b=document.getElementById('loginSubmitBtn');UI.setLoading(b,true,'Signing in…');try{await Auth.login({email:document.getElementById('loginEmail')?.value||'',password:document.getElementById('loginPassword')?.value||''});UI.closeModal('loginModal');UI.showToast('Welcome back! 🎉','success');Dashboard.open();}catch(e){UI.showError('loginError',e.message);}finally{UI.setLoading(b,false);}});
+  ['loginEmail','loginPassword'].forEach(id=>document.getElementById(id)?.addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('loginSubmitBtn')?.click();}));
+  document.getElementById('registerSubmitBtn')?.addEventListener('click',async()=>{UI.hideError('registerError');if(!document.getElementById('registerTerms')?.checked){UI.showError('registerError','Please agree to the Terms of Service to continue.');return;}const b=document.getElementById('registerSubmitBtn');UI.setLoading(b,true,'Creating account…');try{await Auth.register({name:document.getElementById('registerName')?.value||'',email:document.getElementById('registerEmail')?.value||'',password:document.getElementById('registerPassword')?.value||'',role:document.getElementById('registerRole')?.value||''});UI.closeModal('registerModal');UI.showToast("Account created! Welcome to Bookin'it 🚀",'success');Dashboard.open();}catch(e){UI.showError('registerError',e.message);}finally{UI.setLoading(b,false);}});
+  document.getElementById('registerPassword')?.addEventListener('input',e=>{const s=Security.passwordStrength(e.target.value);const el=document.getElementById('pwStrength');if(el){el.textContent=s.label;el.style.color=s.color;}});
+  ['registerName','registerEmail','registerPassword'].forEach(id=>document.getElementById(id)?.addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('registerSubmitBtn')?.click();}));
+  // Booking form
+  populateTZ('bookingTimezone');
+  initPlatformToggles(document.querySelector('#bookingModal .platform-toggle'));
+  const bd2=document.getElementById('bookingDate');if(bd2)bd2.min=new Date().toISOString().split('T')[0];
+  document.getElementById('bookingSubmitBtn')?.addEventListener('click',async()=>{UI.hideError('bookingError');const b=document.getElementById('bookingSubmitBtn');UI.setLoading(b,true,'Sending…');try{const u=Auth.getCurrentUser();if(!u)throw new Error('You must be logged in to create a booking.');const pl=document.querySelector('#bookingModal .platform-btn.active')?.dataset.platform||'google-meet';Bookings.createBooking({hostEmail:u.email,hostName:u.name,clientName:document.getElementById('bookingClientName')?.value||'',clientEmail:document.getElementById('bookingClientEmail')?.value||'',date:document.getElementById('bookingDate')?.value||'',time:document.getElementById('bookingTime')?.value||'',timezone:document.getElementById('bookingTimezone')?.value||'UTC',platform:pl,meetLink:document.getElementById('bookingMeetLink')?.value||'',isDemo:false});UI.closeModal('bookingModal');UI.showToast('Booking confirmed and confirmation sent! 📧','success');Dashboard.open();}catch(e){UI.showError('bookingError',e.message);}finally{UI.setLoading(b,false);}});
+  // Global events
+  document.getElementById('navLoginBtn')?.addEventListener('click',()=>UI.openModal('loginModal'));
+  document.getElementById('navRegisterBtn')?.addEventListener('click',()=>UI.openModal('registerModal'));
+  document.getElementById('navDashboardBtn')?.addEventListener('click',()=>Dashboard.open());
+  document.getElementById('navSignOutBtn')?.addEventListener('click',()=>Auth.logout());
+  document.getElementById('heroSignupBtn')?.addEventListener('click',()=>UI.openModal('registerModal'));
+  document.getElementById('heroDemoBtn')?.addEventListener('click',()=>document.getElementById('demo')?.scrollIntoView({behavior:'smooth'}));
+  document.getElementById('demoNavBtn')?.addEventListener('click',e=>{e.preventDefault();document.getElementById('demo')?.scrollIntoView({behavior:'smooth'});});
+  document.getElementById('ctaSignupBtn')?.addEventListener('click',()=>UI.openModal('registerModal'));
+  document.
+querySelectorAll('.modal-close').forEach(b=>b.addEventListener('click',()=>UI.closeModal(b.dataset.modal)));
+  document.querySelectorAll('.modal-overlay').forEach(o=>o.addEventListener('click',e=>{if(e.target===o)UI.closeModal(o.id);}));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')UI.closeAllModals();});
+  document.getElementById('switchToRegister')?.addEventListener('click',()=>{UI.closeModal('loginModal');setTimeout(()=>UI.openModal('registerModal'),50);});
+  document.getElementById('switchToLogin')?.addEventListener('click',()=>{UI.closeModal('registerModal');setTimeout(()=>UI.openModal('loginModal'),50);});
+  document.querySelectorAll('.toggle-pw').forEach(b=>b.addEventListener('click',()=>{const i=document.getElementById(b.dataset.target);if(!i)return;i.type=i.type==='password'?'text':'password';b.textContent=i.type==='password'?'👁':'🙈';}));
+  document.getElementById('newBookingBtn')?.addEventListener('click',()=>{UI.closeModal('dashboardModal');setTimeout(()=>UI.openModal('bookingModal'),100);});
+  document.getElementById('copyLinkBtn')?.addEventListener('click',()=>{const l=document.getElementById('userBookingLink')?.textContent;if(l)navigator.clipboard.writeText(l).then(()=>UI.showToast('Booking link copied! 📋','success')).catch(()=>UI.showToast('Link: '+l,'default'));});
+  document.querySelectorAll('.plan-cta').forEach(b=>b.addEventListener('click',()=>{const p=b.dataset.plan;const u=Auth.getCurrentUser();if(p==='starter'){if(!u)UI.openModal('registerModal');else UI.showToast("You're already on the Starter plan!",'default');return;}if(!u){UI.openModal('registerModal');return;}openUpgradeModal(p);}));
+  document.getElementById('upgradeConfirmBtn')?.addEventListener('click',()=>{UI.closeModal('upgradeModal');UI.showToast('🎉 Demo only — production would redirect to secure payment!','success');});
+  // Scroll reveal
+  const els=document.querySelectorAll('.step-card,.feature-card,.pricing-card,.testimonial-card');const obs=new IntersectionObserver((en)=>{en.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';obs.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});els.forEach((el,i)=>{el.style.opacity='0';el.style.transform='translateY(24px)';el.style.transition=`opacity .5s ${i*.06}s ease,transform .5s ${i*.06}s ease`;obs.observe(el);});
+  console.log("⚡ Bookin'it loaded | Security active | \"Did you know this is my first major project😉\" — P Mathelele");
+});
